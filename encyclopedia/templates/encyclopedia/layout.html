@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+		<style>
+		.form-control input[type=text]{
+			display: block;
+			width: 100%;
+			height: calc(1.5em + .75rem + 2px);
+			padding: .375rem .75rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #495057;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 1px solid #ced4da;
+			border-radius: .25rem;
+			transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+		.form-control{
+			display: block;
+			width: 100%;
+			height: calc(1.5em + .75rem + 2px);
+			padding: 0 !important;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #495057;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: none !important;
+			border-radius: none !important;
+			transition: none !important;
+		}
+		body{
+			overflow:hidden;
+		}
+		#zahidmainpostview::-webkit-scrollbar {
+			width: 10px;
+		}
+		#zahidmainpostview::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 5px grey; 
+			border-radius: 10px;
+		}
+		#zahidmainpostview::-webkit-scrollbar-thumb {
+			background: #2b5797; 
+			border-radius: 10px;
+		}
+		#zahidmainpostview::-webkit-scrollbar-thumb:hover {
+			background: darkturquoise; 
+		}
+		</style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="sidebar col-lg-2 col-md-3">
+                <h2 style="font-size:3rem !important;" class="display-3"><i class="fa fa-globe" aria-hidden="true"></i> Wiki</h2>
+				<h6>Free Encyclopedia</h6>
+                <form class="form-control" method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                    <h6>{{form.item}}</h6>
+                </form>
+                <div>
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </div>
+                <div>
+                    <a class="nav-link" href="{% url 'about' %}">About Wiki</a>
+                </div>
+                <div>
+                    <a class="nav-link" href="{% url 'create' %}">Create New Page</a>
+                </div>
+                <div>
+                    <a class="nav-link" href="{% url 'random' %}">Random Page</a>
+                </div>
+                <div>
+                    <a class="nav-link" href="{% url 'rules' %}">Our Rules</a>
+                </div>
+                {% block nav %}
+                {% endblock %}
+            </div>
+            <div class="main col-lg-10 col-md-9">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>

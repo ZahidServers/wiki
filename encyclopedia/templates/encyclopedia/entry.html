@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+<div id="zahidmainpostview" style="border: none; padding: 0;margin-bottom: 0;margin-top: 0; margin-right: 9px;overflow-y: auto;height: 85%;">
+    {{ page|safe }}
+    <a href=/edit/{{title}}>Edit Page</a>
+</div>
+    
+{% endblock %}

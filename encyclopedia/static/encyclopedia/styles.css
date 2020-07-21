@@ -1,0 +1,68 @@
+body {
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+textarea {
+    height: 60vh;
+    width: 80%;
+}
+
+.main {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #2b5797;
+    height: 100vh;
+    padding: 30px;
+    color:white;
+}
+
+
+
+.nav-link{
+    font-size: 16px;
+    color:white;
+}
+
+.nav-link:hover{
+    color:darkturquoise;
+    content:">>";
+}
+
+.nav-link:hover::after{
+    color:darkturquoise;
+    font-family: FontAwesome;
+    content:" \f0a9"
+}
+
+li{
+    list-style-type: circle;
+    font-size: 20px;
+}
+
+a{
+    color:darkturquoise;
+}
+
+a:hover{
+    color:black;
+}
